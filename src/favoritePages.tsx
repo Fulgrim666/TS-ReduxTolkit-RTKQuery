@@ -1,5 +1,20 @@
-import React from "react";
+import { useAppSelect } from "./hooks/redux";
 
 export const FavoritePages = () => {
-  return <div>favorite</div>;
+  const { favorites } = useAppSelect((state) => state.github);
+  if (favorites.length === 0) {
+    return <p>No items</p>;
+  } else {
+    return (
+      <div className="flex justify-center pt-10 mx-auto h-screen w-screen">
+        <ul className="list-none">
+          {favorites.map((item) => (
+            <li key={item}>
+              <a href={item}>{item}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 };

@@ -4,6 +4,7 @@ import {
   useLazyGetUsereposQuery,
 } from "./store/Github/Github.api";
 import { UseDebounce } from "./hooks/debounce";
+import { RepoCart } from "./components/RepoCart";
 
 export const HomePage = () => {
   const [search, setSearch] = useState("");
@@ -21,6 +22,7 @@ export const HomePage = () => {
 
   const clickHandler = (username: string) => {
     fetchreps(username);
+    setDropdown(false);
   };
 
   return (
@@ -50,8 +52,8 @@ export const HomePage = () => {
         )}
         <div className="container">
           {isRepsLoading && <p className="text-container">Repositories</p>}
-          {reps?.map((rep) => (
-            <p>{rep.url}</p>
+          {reps?.map((repo) => (
+            <RepoCart repo={repo} key={repo.id} />
           ))}
         </div>
       </div>
