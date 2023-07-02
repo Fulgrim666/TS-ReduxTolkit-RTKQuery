@@ -27,7 +27,7 @@ export const HomePage = () => {
 
   return (
     <div className="flex justify-center pt-10 mx-auto h-screen w-screen">
-      {isError && <p className="accent-red-600">Максим накакал</p>}
+      {isError && <p className="accent-red-600">Network error</p>}
       <div className="relative w-[560px]">
         <input
           onChange={(event) => setSearch(event.target.value)}
