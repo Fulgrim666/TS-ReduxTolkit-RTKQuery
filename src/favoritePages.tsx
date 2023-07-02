@@ -10,6 +10,7 @@ export const FavoritePages = () => {
         <ul className="list-none">
           {favorites.map((item) => (
             <li key={item}>
+              <span className="font-bold mr-2">Repository link:</span>
               <a href={item}>{item}</a>
             </li>
           ))}
